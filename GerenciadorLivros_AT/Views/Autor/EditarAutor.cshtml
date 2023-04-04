@@ -1,0 +1,32 @@
+﻿@model Domain.Entities.Autor
+
+<h2>Preencha os dados abaixo para atualizar um autor:</h2>
+
+@using (Html.BeginForm("EditarAutor", "Autor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group" value="@Model.Nome">
+        @Html.LabelFor(model => model.Nome)
+        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" }, })
+    </div>
+
+    <div class="form-group" value="@Model.Sobrenome">
+        @Html.LabelFor(model => model.Sobrenome)
+        @Html.EditorFor(model => model.Sobrenome, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group" value="@Model.Email">
+        @Html.LabelFor(model => model.Email)
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group" value="@Model.DataNiver">
+        @Html.LabelFor(model => model.DataNiver, "Data de aniversário")
+        @Html.EditorFor(model => model.DataNiver, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Atualizar" class="btn btn-primary" />
+    </div>
+}

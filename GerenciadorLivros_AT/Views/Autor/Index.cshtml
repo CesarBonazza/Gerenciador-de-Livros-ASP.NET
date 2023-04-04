@@ -1,0 +1,38 @@
+﻿@model IList<Domain.Entities.Autor>
+@{
+    ViewData["Title"] = "Lista de Autores";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>E-mail</th>
+                <th>Aniversário</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var autor in Model)
+            {
+                    <tr>
+                        <td>@autor.Nome</td>
+                        <td>@autor.Sobrenome</td>
+                        <td>@autor.Email</td>
+                        <td>@autor.DataNiver.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @Html.ActionLink("Editar", "EditarAutor", new { Id = autor.Id }, new { @class = "btn btn-primary btn-sm" })
+                            @Html.ActionLink("Detalhes", "DetalhesAutor", new { Id = autor.Id }, new { @class = "btn btn-primary btn-sm" })
+                            @Html.ActionLink("Excluir", "Delete", new { Id = autor.Id }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        @Html.ActionLink("Adicionar Novo Autor", "NovoAutor", null, new { @class = "btn btn-primary" })
+    </div>
+</div>

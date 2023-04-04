@@ -1,0 +1,68 @@
+﻿@model Domain.Entities.Autor
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Informações do Autor</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,.2);
+		}
+
+		h1 {
+			font-size: 36px;
+			margin-bottom: 20px;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		th, td {
+			padding: 10px;
+			text-align: left;
+			border: 1px solid #ccc;
+		}
+
+		th {
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Informações do Autor</h1>
+		<table>
+			<tr>
+				<th>Nome</th>
+				<td>@Model.Nome</td>
+			</tr>
+			<tr>
+				<th>Sobrenome</th>
+				<td>@Model.Sobrenome</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>@Model.Email</td>
+			</tr>
+			<tr>
+				<th>Data de Nascimento</th>
+				<td>@Model.DataNiver.ToShortDateString()</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

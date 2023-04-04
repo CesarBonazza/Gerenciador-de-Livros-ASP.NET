@@ -1,0 +1,36 @@
+﻿@model IList<Domain.Entities.Livro>
+@{
+    ViewData["Title"] = "Lista de Livros";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Título</th>
+                <th>ISBN</th>
+                <th>Ano</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var livro in Model)
+            {
+                <tr>
+                    <td>@livro.Titulo</td>
+                    <td>@livro.ISBN</td>
+                    <td>@livro.Ano.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarLivro", new { Id = livro.Id }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Detalhes", "DetalhesLivro", new { Id = livro.Id }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Excluir", "Delete", new { Id = livro.Id }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        @Html.ActionLink("Adicionar Novo Livro", "NovoLivro", null, new { @class = "btn btn-primary" })
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model Domain.Entities.Autor
+
+<h2>Preencha os dados abaixo para adicionar um novo Autor:</h2>
+
+@using (Html.BeginForm("NovoAutor", "Autor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome)
+        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sobrenome)
+        @Html.EditorFor(model => model.Sobrenome, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DataNiver, "Data de aniversário")
+        @Html.EditorFor(model => model.DataNiver, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Adicionar" class="btn btn-primary" />
+    </div>
+}
